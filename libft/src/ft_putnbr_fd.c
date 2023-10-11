@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/11 02:32:07 by lrenzett         ###   ########.fr       */
+/*   Created: 2023/04/17 21:11:47 by lrenzett          #+#    #+#             */
+/*   Updated: 2023/07/24 19:01:35 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int main ()
+void	ft_putnbr_fd(int n, int fd)
 {
-    t_data  data;
-
-    data.mlx = mlx_init();
-    data.win = mlx_new_window(data.mlx, 21 * 64,
-			11 * 64, "so_long");
-    mlx_loop(data.mlx);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + 48, fd);
 }

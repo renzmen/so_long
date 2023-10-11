@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/11 02:32:07 by lrenzett         ###   ########.fr       */
+/*   Created: 2023/04/11 19:37:15 by lrenzett          #+#    #+#             */
+/*   Updated: 2023/07/24 19:02:27 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int main ()
+char	*ft_strdup(const char *str)
 {
-    t_data  data;
+	char	*mal;
+	size_t	len;
 
-    data.mlx = mlx_init();
-    data.win = mlx_new_window(data.mlx, 21 * 64,
-			11 * 64, "so_long");
-    mlx_loop(data.mlx);
+	len = ft_strlen(str) + 1;
+	mal = (char *)malloc(len * sizeof(char));
+	if (!mal)
+		return (NULL);
+	ft_strlcpy(mal, str, len);
+	return (mal);
 }

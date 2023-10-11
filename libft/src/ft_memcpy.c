@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/11 02:32:07 by lrenzett         ###   ########.fr       */
+/*   Created: 2023/04/26 00:56:39 by lrenzett          #+#    #+#             */
+/*   Updated: 2023/07/24 19:01:06 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int main ()
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    t_data  data;
+	unsigned char		*dp;
+	const unsigned char	*sp;
 
-    data.mlx = mlx_init();
-    data.win = mlx_new_window(data.mlx, 21 * 64,
-			11 * 64, "so_long");
-    mlx_loop(data.mlx);
+	if (!dest && !src)
+		return (0);
+	dp = dest;
+	sp = src;
+	while (n--)
+		*dp++ = *sp++;
+	return (dest);
 }

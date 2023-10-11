@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/11 02:32:07 by lrenzett         ###   ########.fr       */
+/*   Created: 2023/04/19 19:10:11 by lrenzett          #+#    #+#             */
+/*   Updated: 2023/07/24 19:00:28 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int main ()
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-    t_data  data;
-
-    data.mlx = mlx_init();
-    data.win = mlx_new_window(data.mlx, 21 * 64,
-			11 * 64, "so_long");
-    mlx_loop(data.mlx);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

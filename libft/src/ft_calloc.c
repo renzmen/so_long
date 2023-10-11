@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/11 02:32:07 by lrenzett         ###   ########.fr       */
+/*   Created: 2023/04/11 20:04:05 by lrenzett          #+#    #+#             */
+/*   Updated: 2023/07/27 17:24:51 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "./libft.h"
 
-int main ()
+void	*ft_calloc(size_t count, size_t size)
 {
-    t_data  data;
+	void	*cal;
+	size_t	tot;
 
-    data.mlx = mlx_init();
-    data.win = mlx_new_window(data.mlx, 21 * 64,
-			11 * 64, "so_long");
-    mlx_loop(data.mlx);
+	if (count + size < count || count + size < size)
+		return (NULL);
+	tot = count * size;
+	cal = malloc(tot);
+	if (!cal)
+		return (NULL);
+	ft_bzero(cal, tot);
+	return (cal);
 }

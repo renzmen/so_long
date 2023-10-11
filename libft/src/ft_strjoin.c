@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/11 02:32:07 by lrenzett         ###   ########.fr       */
+/*   Created: 2023/04/12 16:50:01 by lrenzett          #+#    #+#             */
+/*   Updated: 2023/07/24 19:02:38 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int main ()
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-    t_data  data;
+	size_t	len;
+	char	*mal;
+	char	*runner;
 
-    data.mlx = mlx_init();
-    data.win = mlx_new_window(data.mlx, 21 * 64,
-			11 * 64, "so_long");
-    mlx_loop(data.mlx);
+	if (!s1 || !s2)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	mal = (char *)malloc((len + 1) * sizeof(char));
+	if (!mal)
+		return (NULL);
+	runner = mal;
+	while (*s1)
+		*runner++ = *(char *)s1++;
+	while (*s2)
+		*runner++ = *(char *)s2++;
+	*runner = '\0';
+	return (mal);
 }

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/11 02:32:07 by lrenzett         ###   ########.fr       */
+/*   Created: 2023/04/26 01:22:55 by lrenzett          #+#    #+#             */
+/*   Updated: 2023/07/24 19:01:10 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int main ()
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-    t_data  data;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
-    data.mlx = mlx_init();
-    data.win = mlx_new_window(data.mlx, 21 * 64,
-			11 * 64, "so_long");
-    mlx_loop(data.mlx);
+	s1 = (unsigned char *)dst;
+	s2 = (unsigned char *)src;
+	if (!dst && !src)
+		return (dst);
+	if (src < dst)
+		while (n--)
+			s1[n] = s2[n];
+	else
+		while (n--)
+			*s1++ = *s2++;
+	return (dst);
 }
