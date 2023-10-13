@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 01:37:51 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/11 02:31:08 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:38:18 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "libft/includes/libft.h"
-# include "mlx/mlx.h"
+# include "mlx_linux/mlx.h"
 # include <string.h>
 # include <fcntl.h>
 # include <errno.h>
