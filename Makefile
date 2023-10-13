@@ -6,41 +6,38 @@
 #    By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/12 18:48:01 by lrenzett          #+#    #+#              #
-#    Updated: 2023/10/13 17:53:59 by lrenzett         ###   ########.fr        #
+#    Updated: 2023/10/13 23:59:56 by lrenzett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-INCLUDES = -I /usr/local/include/
-LINKER = -L /usr/local/lib/
-SRC_DIR = ./src/
-OBJ_DIR = ./obj/
-SRC = so_long.c
+INCLUDES = -I /usr/local/include -I./includes/ -I./libft/includes/
+LINKER = -L /usr/local/lib
+SRCS_DIR = ./srcs/
+SRCS = so_long.c
 FLAGS = -Wall -Werror -Wextra -g
 LIBFT = ./libft/libft.a
 MLX_MAC = -lmlx -framework OpenGL -framework AppKit
 MLX_LINUX = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-OBJ = ${SRC:%.c=%.o}
-GCC = gcc
+OBJS = ${SRCS:%.c=%.o}
+CC = gcc
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJS)
 	cd mlx_linux && make
 	cd libft && make
-	gcc $(FLAGS) $(OBJ) $(LIBFT) $(MLX_LINUX) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX_LINUX) -o $(NAME)
 
 %.o: %.c
-	$(GCC) $(FLAGS) -c $<
+	$(CC) $(FLAGS) -c $<
 
 clean:
-	rm -fr $(OBJ)
+	rm -fr $(OBJS)
 	cd libft && make clean
 	cd mlx_linux && make clean
 
 fclean: clean
 	rm -fr so_long
-	cd libft && make fclean
-#	cd mlx_linux && make fclean
-
+	
 re: fclean all
