@@ -6,19 +6,53 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/14 00:03:53 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/10/31 23:37:49 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main ()
+/*int	handle_key(int keycode, t_game *game)
+{
+	if (keycode == 65307)
+		close_win(game);
+	if (keycode == 65362 || keycode == 119)
+		player_up(game);
+	if (keycode == 65364 || keycode == 115)
+		player_down(game);
+	if (keycode == 65361 || keycode == 97)
+		player_left(game);
+	if (keycode == 65363 || keycode == 100)
+		player_right(game);
+	return (0);
+}*/
+
+int main (int argc, char **argv)
 {
     t_data  data;
 
-    data.mlx = mlx_init();
-    data.win = mlx_new_window(data.mlx, 21 * 64,
-			11 * 64, "so_long");
+	if (argc != 2)
+		ft_printf("inserisci una mappa!");
+	printf("1\n");
+	
+	printf("2\n");
+	
+    init_struct(&data);
+	read_map(argv[1], &data);
+	map_width(&data);
+	map_height(&data);
+	printf("3\n");
+	check(&data);
+	printf("4\n");
+	init_window(&data);
+	printf("5\n");	
+	xpm_to_image(&data);
+	draw_map(&data);
+
+	//mlx_key_hook(data.win, handle_key, &data);
+	//mlx_loop_hook(data.mlx, put_exit_animation, &data);
+	//mlx_hook(data.win, 17, 0L, close_win, &data);
+	
     mlx_loop(data.mlx);
 }
 
