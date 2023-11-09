@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:45:31 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 00:06:31 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:36:04 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ void	init_window(t_data *data)
 	data->mlx = mlx_init();
     data->win = mlx_new_window(data->mlx, data->map.width * data->image.size, data->map.height * data->image.size, "so_long");
 }
+
 int	map_width(t_data *data)
 {
 	data->map.width = 0;
 	data->map.width = ft_strlen(data->map.read[0]);
 	return (data->map.width);
 }
+
 int	map_height(t_data *data)
 {
 	data->map.height = 0;
@@ -30,11 +32,13 @@ int	map_height(t_data *data)
 		data->map.height++;
 	return (data->map.height);
 }
+
 char	*error(char *msg)
 {
 	ft_printf("Error:\n%s\n", msg);
 	exit(1);
 }
+
 void	xpm_to_image(t_data *data)
 {
 	data->image.floor = mlx_xpm_file_to_image(data->mlx, "./img/floor.xpm", &data->image.size, &data->image.size);
@@ -42,6 +46,7 @@ void	xpm_to_image(t_data *data)
 	data->image.exit = mlx_xpm_file_to_image(data->mlx, "./img/exit.xpm", &data->image.size, &data->image.size);
 	
 }
+
 void    init_struct(t_data *data)
 {
     data->map.player = 0;

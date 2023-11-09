@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 23:35:37 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/09 23:56:24 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:36:21 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void    get_enemy(t_data *data, int x, int y)
     data->move.n_x = x;
 	data->move.n_y = y;
 }
+
 int	handle_key(int keycode, t_data *data)
 {
 	if (keycode == 65307)

@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:35:18 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 00:19:58 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:36:44 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ char	**read_map(char *argv, t_data *data)
 	free(str);
 	return (data->map.read);
 }
-
-
 
 void	check_walls(t_data *data)
 {
@@ -80,7 +78,6 @@ void	check_map(t_data *data, int x, int y)
 		data->map.collectible++;
 }
 
-
 void	check(t_data *data)
 {
     int		y;
@@ -105,8 +102,6 @@ void	check(t_data *data)
 	if (data->map.collectible <=0)
 		error("deve esserci almeno un collezionabile nella mappa!");
 }
-
-
 
 void	draw_map(t_data *data)
 {
