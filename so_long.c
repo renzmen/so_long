@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 00:30:07 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:31:34 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ int main (int argc, char **argv)
 
 	if (argc != 2)
 		error("inserisci una mappa!");
-	printf("1\n");
-	
-	printf("2\n");
-	
     init_struct(&data);
 	read_map(argv[1], &data);
 	map_width(&data);
@@ -40,6 +36,7 @@ int main (int argc, char **argv)
 	
     mlx_loop(data.mlx);
 }
+
 
 
 
