@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:35:18 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/01 00:08:57 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:19:58 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,43 +51,52 @@ void	check_walls(t_data *data)
 	}
 }
 
-void	check_map(t_data *data, int i, int j)
+void	check_map(t_data *data, int x, int y)
 {
-	if (!(data->map.read[i][j] == '0' || data->map.read[i][j] == '1'
-		|| data->map.read[i][j] == 'C' || data->map.read[i][j] == 'P'
-		|| data->map.read[i][j] == 'E' || data->map.read[i][j] == 'N'))
+	if (!(data->map.read[y][x] == '0' || data->map.read[y][x] == '1'
+		|| data->map.read[y][x] == 'C' || data->map.read[y][x] == 'P'
+		|| data->map.read[y][x] == 'E' || data->map.read[y][x] == 'N'))
 			error("mappa non valida");
-    if (data->map.read[i][j] == 'N')
+    if (data->map.read[y][x] == 'N')
 	{
         if (++data->map.enemy > 1)
 			error("non ci puó essere piú di un nemico nella mappa!");
+		get_enemy(data, y, x);
 	}
 	
-	if (data->map.read[i][j] == 'P')
+	if (data->map.read[y][x] == 'P')
+	{
 		data->map.player++;
-	if (data->map.read[i][j] == 'E')
+		data->move.p_x = x;
+		data->move.p_x = x;
+	}
+	if (data->map.read[y][x] == 'E')
+	{
 		data->map.exit++;
-	if (data->map.read[i][j] == 'C')
+		data->move.ex_x = x;
+		data->move.ex_x = x;
+	}
+	if (data->map.read[y][x] == 'C')
 		data->map.collectible++;
 }
 
 
 void	check(t_data *data)
 {
-    int		i;
-	int		j;
+    int		y;
+	int		x;
 
 	check_walls(data);
-    i = 1;
-	while (i < data->map.height)
+    y = 1;
+	while (y < data->map.height)
 	{
-		j = 1;
-		while (j < data->map.width)
+		x = 1;
+		while (x < data->map.width)
 		{
-			check_map(data, i, j);
-			j++;
+			check_map(data, x, y);
+			x++;
 		}
-		i++;
+		y++;
 	}
 	if (data->map.player > 1)
 		error("deve esserci un solo giocatore nella mappa!");

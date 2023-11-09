@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:45:31 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/31 23:41:27 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:06:31 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,13 @@ void    init_struct(t_data *data)
     data->image.floor = NULL;
 	data->image.size = 64;
 
+	data->move.p_x = 0;
+	data->move.p_y = 0;
+	data->move.n_x = 0;
+	data->move.n_y = 0;
+	data->move.ex_x = 0;
+	data->move.ex_y = 0;
+
 }
+
+

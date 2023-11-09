@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 01:37:51 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/10/29 17:04:20 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/09 23:59:38 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@ typedef struct s_map
 	int		collectible;
 }	t_map;
 
-typedef struct s_moves
+typedef struct s_move
 {
 	int	counter;
-	int	i;
-	int	j;
-	int	x;
-	int	y;
-	int	patrol;
-}	t_moves;
+	int	p_x;
+	int	p_y;
+	int	n_x;
+	int	n_y;
+	int	ex_x;
+	int	ex_y;
+}	t_move;
 
 typedef struct s_image
 {
@@ -52,7 +53,7 @@ typedef struct s_image
 
 typedef struct s_data
 {
-	t_moves	moves;
+	t_move	move;
 	t_map	map;
 	t_image	 image;
 	void	*mlx;
@@ -71,6 +72,9 @@ void	check(t_data *data);
 void	init_window(t_data *data);
 char	*error(char *msg);
 void    init_struct(t_data *data);
-
-
+void	ft_free_map(t_data *data);
+void	free_img(t_data *data);
+int	close_win(t_data *data);
+int	handle_key(int keycode, t_data *data);
+void    get_enemy(t_data *data, int x, int y);
 #endif
