@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 00:32:15 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:33:05 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int main (int argc, char **argv)
 	mlx_key_hook(data.win, handle_key, &data);
 	//mlx_loop_hook(data.mlx, put_exit_animation, &data);
 	mlx_hook(data.win, 17, 0L, close_win, &data);
-	
-    mlx_loop(data.mlx);
+	mlx_loop(data.mlx);
 }
 
 
