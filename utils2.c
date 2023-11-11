@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 23:35:37 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/11 00:29:05 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/11 19:20:32 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	handle_key(int keycode, t_data *data)
 		player_right(game);*/
 	return (0);
 }
-void	moves(t_data *data, unsigned int x, unsigned int y)
+/*void	moves(t_data *data, unsigned int x, unsigned int y)
 {
 	if (data->map.read[y][x] == '1')
 	{
@@ -46,4 +46,4 @@ void	check_move(t_data *data, unsigned int x, unsigned int y)
 	data->map.read[y][x] = 'P';
 	data->map.read[data->move.p_y][data->move.p_x] = '0';
 	
-}
+}*/

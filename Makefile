@@ -6,7 +6,7 @@
 #    By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/12 18:48:01 by lrenzett          #+#    #+#              #
-#    Updated: 2023/11/09 23:59:49 by lrenzett         ###   ########.fr        #
+#    Updated: 2023/11/11 19:19:44 by lrenzett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -fr $(OBJS)
-	cd libft && make clean
+	cd libft && make fclean
 	cd mlx_linux && make clean
 
 fclean: clean
