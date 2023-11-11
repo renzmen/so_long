@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:35:18 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 00:36:44 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 23:44:46 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	check_map(t_data *data, int x, int y)
 			error("mappa non valida");
     if (data->map.read[y][x] == 'N')
 	{
-        if (++data->map.enemy > 1)
-			error("non ci puó essere piú di un nemico nella mappa!");
-		get_enemy(data, y, x);
+		data->map.enemy++;
+		data->move.n_x = x;
+		data->move.n_y = y;
 	}
 	
 	if (data->map.read[y][x] == 'P')

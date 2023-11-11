@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:45:31 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 00:36:04 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:38:54 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	init_window(t_data *data)
 int	map_width(t_data *data)
 {
 	data->map.width = 0;
-	data->map.width = ft_strlen(data->map.read[0]);
-	return (data->map.width);
+	return (data->map.width = ft_strlen(data->map.read[0]));
 }
 
 int	map_height(t_data *data)

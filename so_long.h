@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 01:37:51 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/09 23:59:38 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/10 23:59:29 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_map
 	int		enemy;
 	int		exit;
 	int		collectible;
+	int		coll_taken;
 }	t_map;
 
 typedef struct s_move
