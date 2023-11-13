@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 00:33:05 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:41:12 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@ int main (int argc, char **argv)
 		error("inserisci una mappa!");
 	init_struct(&data);
 	read_map(argv[1], &data);
-	map_width(&data);
-	map_height(&data);
-	printf("3\n");
+	printf("width = %d\n", map_width(&data));
+	printf("height = %d\n\n", map_height(&data));
 	check(&data);
-	printf("4\n");
 	init_window(&data);
-	printf("5\n");	
 	xpm_to_image(&data);
 	draw_map(&data);
 

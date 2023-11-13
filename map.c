@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:35:18 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 23:44:46 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:00:03 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,17 @@ void	check_map(t_data *data, int x, int y)
 		data->move.n_x = x;
 		data->move.n_y = y;
 	}
-	
 	if (data->map.read[y][x] == 'P')
 	{
 		data->map.player++;
 		data->move.p_x = x;
-		data->move.p_x = x;
+		data->move.p_y = y;
 	}
 	if (data->map.read[y][x] == 'E')
 	{
 		data->map.exit++;
 		data->move.ex_x = x;
-		data->move.ex_x = x;
+		data->move.ex_y = y;
 	}
 	if (data->map.read[y][x] == 'C')
 		data->map.collectible++;
@@ -119,6 +118,9 @@ void	draw_map(t_data *data)
 					x * data->image.size, y * data->image.size);
 			if (data->map.read[y][x] == '0')
 				mlx_put_image_to_window(data->mlx, data->win, data->image.floor,
+					x * data->image.size, y * data->image.size);
+			if (data->map.read[y][x] == 'P')
+				mlx_put_image_to_window(data->mlx, data->win, data->image.exit,
 					x * data->image.size, y * data->image.size);
 			if (data->map.read[y][x] == 'E')
 				mlx_put_image_to_window(data->mlx, data->win, data->image.exit,
