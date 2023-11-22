@@ -106,7 +106,9 @@ main(){
 	parse_args "$@"
 	if [ -z "$xlib_inc" ]; then
 		log_error "Can't find a suitable X11 include directory."
-		exit 1
+		exit 1 #######################################
+
+		#######################################
 	fi
 	log_info "Found X11 include path directory: $xlib_inc"
 

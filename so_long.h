@@ -73,11 +73,14 @@ void	check(t_data *data);
 void	init_window(t_data *data);
 char	*error(char *msg);
 void    init_struct(t_data *data);
-void	ft_free_map(t_data *data);
+void	free_map(t_data *data);
 void	free_img(t_data *data);
 int	close_win(t_data *data);
 int	handle_key(int keycode, t_data *data);
 void    get_enemy(t_data *data, int x, int y);
-void	check_move(t_data *data, int x, int y);
 void	moves(t_data *data, int x, int y);
+void	exchange(t_data *data, x, y);
+int	expand(t_data *data, int x, int y, char c);
+void	find_path(t_data *data);
+//void	check_path(t_data *data);
 #endif

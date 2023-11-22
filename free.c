@@ -17,7 +17,7 @@ int	close_win(t_data *data)
 	mlx_destroy_window(data->mlx, data->win);
 	free_img(data);
 	mlx_destroy_display(data->mlx);
-	ft_free_map(data);
+	free_map(data);
 	free(data->mlx);
 	exit(0);
 }
@@ -35,7 +35,7 @@ void	free_img(t_data *data)
 	//mlx_destroy_image(data->mlx, data->one);
 }
 
-void	ft_free_map(t_data *data)
+void	free_map(t_data *data)
 {
 	int	i;
 

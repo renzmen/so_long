@@ -20,8 +20,6 @@ int main (int argc, char **argv)
 		error("inserisci una mappa!");
 	init_struct(&data);
 	read_map(argv[1], &data);
-	printf("width = %d\n", map_width(&data));
-	printf("height = %d\n\n", map_height(&data));
 	check(&data);
 	init_window(&data);
 	xpm_to_image(&data);
