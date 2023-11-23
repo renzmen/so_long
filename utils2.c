@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 23:35:37 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/23 20:12:51 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/23 20:33:47 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,25 +134,6 @@ void	check_path(t_data *data)
 			x++;
 		}
 		y++;
-	}
-}
-
-void	put_exit_animation(t_data *data)
-{
-	if (data->map.collectible == data->map.coll_taken)
-	{
-		data->image.frame += 1;
-		if (data->image.frame <= 10000)
-			mlx_put_image_to_window(data->mlx, data->win, data->exit1,
-				data->e_x * 64, data->e_y * 64);
-		if (data->image.frame > 10000 && data->image.frame <= 20000)
-			mlx_put_image_to_window(data->mlx, data->win, data->exit2,
-				data->e_x * 64, data->e_y * 64);
-		if (data->image.frame > 20000 && data->image.frame <= 30000)
-			mlx_put_image_to_window(data->mlx, data->win, data->exit3,
-				data->e_x * 64, data->e_y * 64);
-		if (data->image.frame > 30000)
-			data->image.frame = -1;
 	}
 }
 
