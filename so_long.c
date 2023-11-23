@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/13 15:41:12 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:24:11 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int main (int argc, char **argv)
 	printf("width = %d\n", map_width(&data));
 	printf("height = %d\n\n", map_height(&data));
 	check(&data);
+	printf("1\n");
+	find_path(&data);
+	check_path(&data);
 	init_window(&data);
 	xpm_to_image(&data);
 	draw_map(&data);

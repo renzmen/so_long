@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 01:37:51 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/13 15:08:00 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/23 20:12:18 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_image
 	void	*floor;
 	void	*wall;
 	void	*exit;
+	int		frame;
 }	t_image;
 
 typedef struct s_data
@@ -73,11 +74,18 @@ void	check(t_data *data);
 void	init_window(t_data *data);
 char	*error(char *msg);
 void    init_struct(t_data *data);
-void	ft_free_map(t_data *data);
+void	free_map(t_data *data);
 void	free_img(t_data *data);
 int	close_win(t_data *data);
 int	handle_key(int keycode, t_data *data);
 void    get_enemy(t_data *data, int x, int y);
 void	check_move(t_data *data, int x, int y);
 void	moves(t_data *data, int x, int y);
+void	print_move(t_data *data);
+
+void	exchange(t_data *data, int x, int y);
+int	expand(t_data *data, int x, int y, char c);
+void	find_path(t_data *data);
+void	check_path(t_data *data);
+void	print_map(t_data *data);
 #endif

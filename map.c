@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:35:18 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/13 16:00:03 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/23 20:00:42 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	check(t_data *data)
 	int		x;
 
 	check_walls(data);
+	if (data->map.height == data->map.width)
+		error("la mappa non é rettangolare!");
     y = 1;
 	while (y < data->map.height)
 	{
@@ -122,11 +124,12 @@ void	draw_map(t_data *data)
 			if (data->map.read[y][x] == 'P')
 				mlx_put_image_to_window(data->mlx, data->win, data->image.exit,
 					x * data->image.size, y * data->image.size);
-			if (data->map.read[y][x] == 'E')
+			if (data->map.read[y][x] == 'E' && data->map.collectible == data->map.coll_taken)
 				mlx_put_image_to_window(data->mlx, data->win, data->image.exit,
 					x * data->image.size, y * data->image.size);
 			x++;
 		}
 		y++;
+		print_move(data);
 	}
 }
