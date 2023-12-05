@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/23 19:24:11 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:02:27 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ int main (int argc, char **argv)
 
 	if (argc != 2)
 		error("inserisci una mappa!");
-	init_struct(&data);
-	read_map(argv[1], &data);
-	printf("width = %d\n", map_width(&data));
-	printf("height = %d\n\n", map_height(&data));
-	check(&data);
+	map_width(&data);
+	map_height(&data);
+	//init_struct(&data);
 	printf("1\n");
+
+	read_map(argv[1], &data);
+	
+	check(&data);
 	find_path(&data);
 	check_path(&data);
 	init_window(&data);

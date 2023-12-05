@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:45:31 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/10 00:38:54 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:57:46 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void    init_struct(t_data *data)
     data->map.enemy = 0;
     data->map.exit = 0;
     data->map.collectible = 0;
+	
     
     data->image.floor = NULL;
 	data->image.size = 64;

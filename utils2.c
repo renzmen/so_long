@@ -6,7 +6,7 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 23:35:37 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/23 20:33:47 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:47:25 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,3 +156,23 @@ void	print_map(t_data *data)
 	}
 	printf("\n");
 }
+
+/*void	check_path(t_data *data)
+{
+	int	x;
+	int	y;
+	
+	y = 0;
+	while (y < data->map.height)
+	{
+		x = 0;
+		while (x < data->map.width)
+		{
+			if (game->map.read[y][x] == 'C' || game->map.read[y][x] == 'E')
+				error("non c'è un percoso valido nella mappa!");
+			exchange(data, x, y);
+			x++;
+		}
+		y++;
+	}
+}*/

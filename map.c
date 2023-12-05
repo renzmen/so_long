@@ -100,8 +100,9 @@ void	check(t_data *data)
 		error("deve esserci un solo giocatore nella mappa!");
 	if (data->map.exit != 1)
 		error("deve esserci una sola uscita nella mappa!");	
-	if (data->map.collectible <=0)
+	if (data->map.collectible <= 0)
 		error("deve esserci almeno un collezionabile nella mappa!");
+	find_path(data);
 }
 
 void	draw_map(t_data *data)
