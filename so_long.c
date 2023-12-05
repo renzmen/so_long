@@ -6,86 +6,68 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:02:55 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/24 19:02:27 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:48:34 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main (int argc, char **argv)
+char	**read_map(char *argv, t_data *data)
 {
-    t_data  data;
+	int		fd;
+	int		r;
+	char	*str;
+
+	is_ber(argv);
+	fd = open(argv, O_RDONLY);
+	str = ft_calloc(sizeof(char), 9999);
+	r = read(fd, str, 9999);
+	if (r == -1)
+		error("mappa non letta!");
+	data->map.read = ft_split(str, 10);
+	close(fd);
+	free(str);
+	return (data->map.read);
+}
+
+void	init_struct(t_data *data)
+{
+	data->map.player = 0;
+	data->map.enemy = 0;
+	data->map.exit = 0;
+	data->map.collectible = 0;
+	data->map.coll_taken = 0;
+	data->image.floor = NULL;
+	data->image.size = 64;
+	data->image.frame = 0;
+	data->image.p = 1;
+	data->image.i = 1;
+	data->move.p_x = 0;
+	data->move.p_y = 0;
+	data->move.n_x = 0;
+	data->move.n_y = 0;
+	data->move.ex_x = 0;
+	data->move.ex_y = 0;
+	data->move.counter = 0;
+}
+
+int	main(int argc, char **argv)
+{
+	t_data	data;
 
 	if (argc != 2)
 		error("inserisci una mappa!");
-	map_width(&data);
-	map_height(&data);
-	//init_struct(&data);
-	printf("1\n");
-
+	init_struct(&data);
 	read_map(argv[1], &data);
-	
+	map_size(&data);
 	check(&data);
 	find_path(&data);
 	check_path(&data);
 	init_window(&data);
 	xpm_to_image(&data);
 	draw_map(&data);
-
 	mlx_key_hook(data.win, handle_key, &data);
-	//mlx_loop_hook(data.mlx, put_exit_animation, &data);
+	mlx_loop_hook(data.mlx, exit_animation, &data);
 	mlx_hook(data.win, 17, 0L, close_win, &data);
 	mlx_loop(data.mlx);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*NAME 		= so_long
-INCLUDES 	= -I./includes/ -I./libft/includes/ -I./usr/local/include/
-LINKER 		= -L /usr/local/lib/
-SRC_DIR 	= ./src/
-0BJ_DIR		= obj
-SRCS_FILES 	= so_long.c
-FLAGS 		= -Wall -Werror -Wextra -g
-LIBFT 		= ./libft/libft.a
-MLX_MAC 	= -lmlx -framework OpenGL -framework AppKit
-MLX_LINUX 	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-CC 			= gcc
-SRCS		= $(addprefix $(SRC_DIR), $(SRC_FILES))   
-OBJS		= $(addprefix $(OBJ_DIR)/,$(SRC_FILES:%.c=%.o))
-
-all: $(NAME)
-
-$(OBJ_DIR)/%.o: $(SRC)
-	@mkdir -p obj
-	$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
-
-$(NAME): $(OBJ_DIR)
-	cd mlx_linux && make
-	cd libft && make
-	$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX_LINUX) -o $(NAME)
-
-
-
-clean:
-	rm -fr $(OBJS)
-	cd libft && make clean
-	cd mlx_linux && make clean
-
-fclean: clean
-	rm -fr so_long
-
-re: fclean all*/

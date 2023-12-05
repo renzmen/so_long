@@ -6,11 +6,17 @@
 /*   By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:24:29 by lrenzett          #+#    #+#             */
-/*   Updated: 2023/11/23 19:58:58 by lrenzett         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:51:44 by lrenzett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	close_msg(t_data *data, char *msg)
+{
+	ft_printf("\n%s\n\n", msg);
+	close_win(data);
+}
 
 int	close_win(t_data *data)
 {
@@ -24,15 +30,18 @@ int	close_win(t_data *data)
 
 void	free_img(t_data *data)
 {
-	//mlx_destroy_image(data->mlx, data->image.rick);
+	mlx_destroy_image(data->mlx, data->image.rick);
+	mlx_destroy_image(data->mlx, data->image.rick_2);
+	mlx_destroy_image(data->mlx, data->image.rick_r);
+	mlx_destroy_image(data->mlx, data->image.rick_2r);
 	mlx_destroy_image(data->mlx, data->image.floor);
-	//mlx_destroy_image(data->mlx, data->image.collectible);
 	mlx_destroy_image(data->mlx, data->image.wall);
 	mlx_destroy_image(data->mlx, data->image.exit);
-	//mlx_destroy_image(data->mlx, data->exit2);
-	//mlx_destroy_image(data->mlx, data->exit3);
-	//mlx_destroy_image(data->mlx, data->zero);
-	//mlx_destroy_image(data->mlx, data->one);
+	mlx_destroy_image(data->mlx, data->image.exit2);
+	mlx_destroy_image(data->mlx, data->image.exit3);
+	mlx_destroy_image(data->mlx, data->image.exit4);
+	mlx_destroy_image(data->mlx, data->image.cetriolo);
+	mlx_destroy_image(data->mlx, data->image.morty);
 }
 
 void	free_map(t_data *data)

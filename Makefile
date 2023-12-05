@@ -6,7 +6,7 @@
 #    By: lrenzett <lrenzett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/12 18:48:01 by lrenzett          #+#    #+#              #
-#    Updated: 2023/11/16 15:24:03 by lrenzett         ###   ########.fr        #
+#    Updated: 2023/11/27 14:31:30 by lrenzett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 INCLUDES = -I /usr/local/include -I./includes/ -I./libft/includes/
 LINKER = -L /usr/local/lib
 SRCS_DIR = ./srcs/
-SRCS = so_long.c map.c utils.c utils2.c free.c
+SRCS = so_long.c map.c utils.c moves.c free.c path_finder.c animation.c
 FLAGS = -Wall -Werror -Wextra -g
 LIBFT = ./libft/libft.a
 MLX_MAC = -lmlx -framework OpenGL -framework AppKit
